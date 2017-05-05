@@ -10,13 +10,13 @@ require recipes-kernel/linux/linux-dtb.inc
 RDEPENDS_kernel-base=""
 FILESEXTRAPATHS_prepend := "${THISDIR}/${P}:"
 
-PV = "4.4+git${SRCPV}"
+PV = "4.9+git${SRCPV}"
 
 S = "${WORKDIR}/git"
 
-SRCREV = "f5d5c0aba8c91f6d3f818fb6de8fa9b70659ce31"
+SRCREV = "3ec55dfae03bef264d5d7ae9fc2a4dfa73451136"
 
-KBRANCH = "linux-4.4-at91"
+KBRANCH = "linux-4.9-at91"
 SRC_URI = "git://github.com/linux4sam/linux-at91.git;protocol=git;branch=${KBRANCH}"
 SRC_URI += "file://defconfig"
 
