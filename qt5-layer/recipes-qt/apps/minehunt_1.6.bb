@@ -1,4 +1,4 @@
-DESCRIPTION = "Atmel QT home automation demo"
+DESCRIPTION = "Microchip Minehunt Qt demo"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://main.cpp;endline=40;md5=ade79b42cecba4adb92be7b0e83bad33"
 
@@ -9,12 +9,12 @@ PR = "r2"
 DEPENDS = "qtbase qtquick1"
 inherit qmake5
 
-SRC_URI = "ftp://ftp.linux4sam.org/pub/demo/qtdemo/minehunt-${PV}.tar.gz"
+SRC_URI = "https://github.com/linux4sam/minehunt/archive/v${PV}.tar.gz;downloadfilename=${PN}-${PV}.tar.gz"
 
-SRC_URI[md5sum] = "4590076f5293ec54269e149c15399889"
-SRC_URI[sha256sum] = "511f0a03df50629f16d45ca2bb6236e8395576423f39076a8d33a1d674bb76e1"
+SRC_URI[md5sum] = "27469020196251ebdaa78ecd7da46e96"
+SRC_URI[sha256sum] = "81cfa87b6cf56fceb755b49462ffac303bd9a3fae2142a94b9f2aceabb0ea689"
 
-S = "${WORKDIR}/minehunt-${PV}"
+S = "${WORKDIR}/${PN}-${PV}"
 
 inherit pkgconfig
 

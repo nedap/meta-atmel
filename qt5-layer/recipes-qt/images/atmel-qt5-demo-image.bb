@@ -24,7 +24,6 @@ IMAGE_INSTALL += "\
 	\
 	linux-firmware-ralink \
 	linux-firmware-ath6k \
-	atmel-wireless-firmware \
 	\
 	alsa-utils \
 	mpg123 \
@@ -39,7 +38,7 @@ IMAGE_INSTALL += "\
 	iproute2 \
 	iptables \
 	bridge-utils \
-	canutils \
+	can-utils \
 	python-pyserial \
 	python-smbus \
 	python-ctypes \
@@ -52,6 +51,9 @@ IMAGE_INSTALL += "\
 	usbutils \
 	wget \
 	${CORE_IMAGE_BASE_INSTALL} \
+	\
+	weston \
+	weston-init \
 	\
 	qtbase \
 	qtbase-plugins \
@@ -73,12 +75,16 @@ IMAGE_INSTALL += "\
 	qtlocation-qmlplugins \
 	qtdeclarative \
 	qtdeclarative-qmlplugins \
-	qtdeclarative-plugins \
 	qtquick1 \
 	qtquick1-qmlplugins \
 	qtquick1-plugins \
+	qtquickcontrols \
+	qtquickcontrols-qmlplugins \
+	qtquickcontrols2 \
+	qtquickcontrols2-qmlplugins \
 	qtwebkit \
 	qtwebkit-qmlplugins \
+	qtwayland \
 	\
 	libicui18n \
 	gstreamer1.0 \
@@ -88,6 +94,9 @@ IMAGE_INSTALL += "\
 	gstreamer1.0-plugins-ugly-meta \
 	gstreamer1.0-libav \
 	libv4l \
+	v4l-utils \
+	fswebcam \
+	ffmpeg \
 	\
 	liberation-fonts \
 	homeautomation \
@@ -96,8 +105,8 @@ IMAGE_INSTALL += "\
 	qmlbrowser \
 	samegame \
 	minehunt \
-	videoplayer \
-	atmel-qt-demo-init \
+	mchp-qt-demo-init \
+	mchp-weston-init \
 "
 
 IMAGE_INSTALL_append_at91sam9 = " \
@@ -106,8 +115,9 @@ IMAGE_INSTALL_append_at91sam9 = " \
 IMAGE_INSTALL_append_sama5d4 = " \
 	gstreamer1.0-plugins-hantro \
 	g1-binaries-dev \
-	g1-binaries-staticdev \
+	videoplayer \
 	"
+
 inherit core-image populate_sdk_qt5
 
 #TOOLCHAIN_HOST_TASK += "nativesdk-sam-ba"

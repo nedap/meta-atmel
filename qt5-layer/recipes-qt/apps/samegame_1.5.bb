@@ -1,4 +1,4 @@
-DESCRIPTION = "Atmel QT home automation demo"
+DESCRIPTION = "Microchip samegame QT demo"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://main.cpp;endline=39;md5=8f2a7549bdcd8bed89187e21d29be11f"
 
@@ -9,12 +9,12 @@ PR = "r2"
 DEPENDS = "qtbase qtdeclarative qtquick1"
 inherit qmake5
 
-SRC_URI = "ftp://ftp.linux4sam.org/pub/demo/qtdemo/samegame-${PV}.tar.gz"
+SRC_URI = "https://github.com/linux4sam/samegame/archive/v${PV}.tar.gz;downloadfilename=${PN}-${PV}.tar.gz"
 
-SRC_URI[md5sum] = "c4009b46488a1feff988627adca48b81"
-SRC_URI[sha256sum] = "a688089a33f4cfbf9238131baa6b1838623361a26b13f5efbc188adaf60f0dca"
+SRC_URI[md5sum] = "4d330e1fd80b09e09649bce23034e6f2"
+SRC_URI[sha256sum] = "6974f32726d46428e0ebbcb3be71e7dcf09339588661f3d23bb4519fa147f804"
 
-S = "${WORKDIR}/samegame-${PV}"
+S = "${WORKDIR}/${PN}-${PV}"
 
 inherit pkgconfig
 

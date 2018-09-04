@@ -16,7 +16,6 @@ IMAGE_INSTALL = "\
     lmbench \
     \
     linux-firmware \
-    atmel-wireless-firmware \
     alsa-utils \
     i2c-tools \
     devmem2 \
@@ -29,7 +28,7 @@ IMAGE_INSTALL = "\
     iproute2 \
     iptables \
     bridge-utils \
-    canutils \
+    can-utils \
     evtest \
     python-pyserial \
     python-smbus \

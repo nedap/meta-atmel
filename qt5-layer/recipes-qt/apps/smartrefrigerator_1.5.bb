@@ -1,4 +1,4 @@
-DESCRIPTION = "Atmel QT smart refrigerator demo"
+DESCRIPTION = "Microchip QT smart refrigerator demo"
 LICENSE = "ATMEL_LLA"
 LIC_FILES_CHKSUM = "file://main.cpp;endline=146;md5=e461c6aa7c87631950f0a71c1552f706"
 
@@ -9,10 +9,10 @@ PACKAGES = "${PN}-dbg ${PN}"
 DEPENDS = "qtbase qtwebkit libv4l qtquick1"
 inherit qmake5
 
-SRC_URI = "ftp://ftp.linux4sam.org/pub/demo/qtdemo/smart-refrigerator-${PV}.tar.gz"
+SRC_URI = "https://github.com/linux4sam/smart-refrigerator/archive/v1.5.tar.gz;downloadfilename=smart-refrigerator-${PV}.tar.gz"
 
-SRC_URI[md5sum] = "c790ebc4169a363d94da4f35dbd2afe8"
-SRC_URI[sha256sum] = "6c6cc2203d91f052edc7026a266f6df130f79e3e1c269a008bbfd40ee163f91a"
+SRC_URI[md5sum] = "9522231f738721803a975cf9e364166a"
+SRC_URI[sha256sum] = "a3160cb0673d4610e081a5dac9aa68fc354ba9b9e139eacb3d5c955be779e28b"
 
 S = "${WORKDIR}/smart-refrigerator-${PV}"
 
@@ -36,10 +36,18 @@ FILES_${PN} = " \
 
 do_install() {
 	make INSTALL_ROOT=${D} install
-	cp -ar ${B}/output/SmartRefr* ${D}/opt
-	mkdir ${D}/etc
-	cp ${B}/output/nhttpd.conf ${D}/etc/nhttpd.conf
-	cp -ar ${B}/output/ApplicationL* ${D}/opt
+	cd ${B}/output/
+	for file in $(find SmartRefrigerator ApplicationLauncher -type f); do
+		if [ -x ${file} ]; then
+			PERM="755"
+		else
+			PERM="644"
+		fi
+		echo install -m ${PERM} -D ${file} ${D}/opt/${file}
+		install -m ${PERM} -D ${file} ${D}/opt/${file}
+	done
+	install -d ${D}/etc
+	install -m 644 nhttpd.conf ${D}/etc/nhttpd.conf
 }
 
 pkg_postinst_PACKAGENAME() {
