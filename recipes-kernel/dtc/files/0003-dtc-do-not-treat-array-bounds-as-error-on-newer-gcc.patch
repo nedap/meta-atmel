@@ -1,0 +1,17 @@
+Older dtc releases build with -Werror by default. Newer GCC versions emit an
+array-bounds warning in fdtdump.c that is benign for this vintage source tree.
+
+Keep warnings enabled, but do not make this one fatal.
+
+Upstream-Status: Inappropriate [old release host-compatibility fix]
+
+--- a/Makefile
++++ b/Makefile
+@@ -18,7 +18,7 @@ CPPFLAGS = -I libfdt -I .
+ WARNINGS = -Wall -Wpointer-arith -Wcast-qual -Wnested-externs \
+ 	-Wstrict-prototypes -Wmissing-prototypes -Wredundant-decls -Wshadow
+-CFLAGS = -g -Os $(SHAREDLIB_CFLAGS) -Werror $(WARNINGS)
++CFLAGS = -g -Os $(SHAREDLIB_CFLAGS) -Werror $(WARNINGS) -Wno-error=array-bounds
+ 
+ BISON = bison
+ LEX = flex

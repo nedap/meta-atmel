@@ -1,0 +1,19 @@
+Remove the redundant global YYLTYPE yylloc definition.
+
+The lexer and parser both define it on newer toolchains, which leads to a
+multiple-definition link failure when building dtc natively.
+
+Same fix strategy as the existing U-Boot dtc backport.
+
+Upstream-Status: Backport
+
+--- a/dtc-lexer.l
++++ b/dtc-lexer.l
+@@ -38,7 +38,6 @@ LINECOMMENT	"//".*\n
+ #include "srcpos.h"
+ #include "dtc-parser.tab.h"
+ 
+-YYLTYPE yylloc;
+ extern bool treesource_error;
+ 
+ /* CAUTION: this will stop working if we ever use yyless() or yyunput() */

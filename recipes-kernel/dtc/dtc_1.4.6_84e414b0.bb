@@ -6,8 +6,10 @@ LIC_FILES_CHKSUM = "file://GPL;md5=94d55d512a9ba36caa9b7df079bae19f \
 
 SRCREV = "84e414b0b5bcea3a82875d79cc15520440e1e49b"
 
-EXTRA_OEMAKE_append_class-native = " 'CFLAGS=-g -Os $$(SHAREDLIB_CFLAGS) -Werror $$(WARNINGS) -Wno-error=array-bounds'"
-EXTRA_OEMAKE_append_class-nativesdk = " 'CFLAGS=-g -Os $$(SHAREDLIB_CFLAGS) -Werror $$(WARNINGS) -Wno-error=array-bounds'"
+SRC_URI += " \
+    file://0002-dtc-remove-redundant-yylloc-definition.patch \
+    file://0003-dtc-do-not-treat-array-bounds-as-error-on-newer-gcc.patch \
+"
 
 S = "${WORKDIR}/git"
 
