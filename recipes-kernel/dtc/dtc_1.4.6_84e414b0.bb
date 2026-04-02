@@ -5,6 +5,7 @@ LIC_FILES_CHKSUM = "file://GPL;md5=94d55d512a9ba36caa9b7df079bae19f \
 
 
 SRCREV = "84e414b0b5bcea3a82875d79cc15520440e1e49b"
+SRC_URI += "file://0001-fdtdump-Fix-gcc11-warning.patch"
 
 S = "${WORKDIR}/git"
 
