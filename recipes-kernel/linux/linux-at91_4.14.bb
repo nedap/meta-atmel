@@ -43,7 +43,11 @@ do_deploy_append() {
 
 kernel_do_configure_append() {
 	rm -f ${B}/.scmversion ${S}/.scmversion
-	cd ${S}; git status; cd -
+	if [ -d "${S}/.git" ]; then
+		cd ${S}
+		git status
+		cd -
+	fi
 }
 
 KERNEL_MODULE_AUTOLOAD += "atmel_usba_udc g_serial"
